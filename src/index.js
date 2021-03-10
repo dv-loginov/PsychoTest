@@ -1,5 +1,5 @@
-//import {Quiz} from '@/components/quiz/Quiz';
-//import {Questions} from '@/components/questions/Questions';
+// import {Quiz} from '@/components/quiz/Quiz';
+// import {Questions} from '@/components/questions/Questions';
 // import {Answer} from '@/components/answer/Answer';
 // import {Rezult} from '@/components/rezult/Rezult';
 import './scss/index.scss';
@@ -10,8 +10,8 @@ import './scss/index.scss';
 //
 console.log('run');
 
-//const quiz = new Quiz('#app', {
+// const quiz = new Quiz('#app', {
 //  components: [Questions],
-//});
+// });
 
-//quiz.render();
+// quiz.render();

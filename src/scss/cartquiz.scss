@@ -1,0 +1,48 @@
+.cartQuiz {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  min-height: 60vh;
+  min-width: 60vw;
+  max-width: 80vw;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  font-size: calc(2rem + 1vw);
+  position: relative;
+  background-color: rgba(100, 100, 100, 0.1);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  margin: 3rem;
+  padding: 2rem;
+
+  &__info {
+    font-size: calc(.3rem + 1vw);
+    align-self: flex-end;
+  }
+
+  &__question {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    h2 {
+      font-size: calc(1rem + 1vw);
+    }
+  }
+
+  &__answer {
+    border-top: 1px solid black;
+    padding: .5rem;
+    width: 100%;
+    h3 {
+      font-size: calc(1rem + 1vw);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
