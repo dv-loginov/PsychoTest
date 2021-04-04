@@ -1,5 +1,5 @@
 {
-  "name": "excel-course",
+  "name": "quiz",
   "version": "1.0.0",
   "description": "Pure JavaScript Test Application",
   "main": "webpack.config.js",

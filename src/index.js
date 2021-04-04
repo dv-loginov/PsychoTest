@@ -1,17 +1,26 @@
-// import {Quiz} from '@/components/quiz/Quiz';
-// import {Questions} from '@/components/questions/Questions';
-// import {Answer} from '@/components/answer/Answer';
-// import {Rezult} from '@/components/rezult/Rezult';
+import {Quiz} from '@/components/quiz/Quiz';
 import './scss/index.scss';
-//
-// const quiz = new Quiz('#app', {
-//   components: [Questions, Answer, Rezult],
-// });
-//
+
 console.log('run');
 
-// const quiz = new Quiz('#app', {
-//  components: [Questions],
-// });
+const status = function(response) {
+  if (response.status !== 200) {
+    return Promise.reject(new Error(response.statusText));
+  }
+  return Promise.resolve(response);
+};
 
-// quiz.render();
+const json = function(response) {
+  return response.json();
+};
+
+fetch('http://dv-loginov.ru/data/tests/AccentuationCharacter.json')
+    .then(status)
+    .then(json)
+    .then(data => {
+      const quiz = new Quiz('#app', data);
+      quiz.render();
+    })
+    .catch(error => console.log('error', error));
+
+
