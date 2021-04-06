@@ -1,51 +1,60 @@
 import {$} from '@core/dom';
-import {StartPage} from '@/components/startpage/StartPage';
-import {WorkPage} from '@/components/workpage/WorkPage';
-import {EndPage} from '@/components/endpage/EndPage';
+import {PageStart} from '@/components/pagestart/PageStart';
+import {PageWork} from '@/components/pagework/PageWork';
+import {PageEnd} from '@/components/pageend/PageEnd';
 
 export class Quiz {
   constructor(selector, data) {
     this.$el = $(selector);
-    this.pages=[StartPage, WorkPage, EndPage];
-    this.indexCurrentPage=0;
-    this.name=data.name;
-    this.description=data.description;
-    this.instruction=data.instruction;
-    this.questions=data.questions;
-    this.arg=[
+    this.pages = [PageStart, PageWork, PageEnd];
+    this.indexCurrentPage = 0;
+    this.currentPage=null;
+    Object.assign(this, data);
+    this.opt = [
       {
-        name: this.name,
-        description: this.description,
-        instruction: this.instruction,
+        dataPage: {
+          name: this.name,
+          description: this.description,
+          instruction: this.instruction,
+        },
+        eventsPage: [
+          {id: '#start', event: 'click', callback: this.nextPage.bind(this)},
+        ],
       },
       {
-        name: this.name,
-        questions: this.questions,
+        dataPage: {
+          name: this.name,
+          questions: this.questions,
+        },
+        eventsPage: [
+          {id: '#next', event: 'click', callback: this.nextPage.bind(this)},
+        ],
       },
       {
-        name: this.name,
+        dataPage: {
+          name: this.name,
+        },
+        eventsPage: [],
       },
     ];
   }
 
   nextPage() {
-    if (this.indexCurrentPage <= this.pages.length-1) {
+    console.log('nextPage');
+    if (this.indexCurrentPage < this.pages.length - 1) {
       this.indexCurrentPage++;
+      this.currentPage.offEvents();
+      const app = document.querySelector('#app');
+      app.innerHTML = '';
       this.render();
     }
   }
 
-  getPage() {
-    const $el = $.create('div', 'container' );
-    const Page = this.pages[this.indexCurrentPage];
-    const argPage = this.arg[this.indexCurrentPage];
-    const page = new Page(argPage);
-    $el.html(page.toHTML());
-    return $el;
-  }
-
   render() {
-    this.$el.append(this.getPage());
-    // this.components.forEach((component) => component.init());
+    console.log('render app');
+    const Page = this.pages[this.indexCurrentPage];
+    const page = new Page(this.$el, this.opt[this.indexCurrentPage]);
+    this.currentPage = page;
+    page.render();
   }
 }

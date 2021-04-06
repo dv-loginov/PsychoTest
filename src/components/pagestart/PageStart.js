@@ -1,8 +1,9 @@
-export class StartPage {
+import {PageBase} from '@core/PageBase';
+
+export class PageStart extends PageBase {
   constructor(...arg) {
-    this.name = arg[0].name;
-    this.description = arg[0].description;
-    this.instruction = arg[0].instruction;
+    super(...arg);
+    this.namePage='PageStart';
   }
 
   toHTML() {

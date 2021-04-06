@@ -1,4 +1,4 @@
-import {Quiz} from '@/components/quiz/Quiz';
+import {Quiz} from '@/components/quiz/quiz';
 import './scss/index.scss';
 
 console.log('run');
