@@ -27,7 +27,7 @@ export class PageStart extends PageBase {
             </div>
         </div>
         <div class="cartQuiz__nav">
-            <button id="start" class="button">Начать</button>
+            <button id="next" class="button">Начать</button>
         </div>
     </div>
     `;

@@ -1,4 +1,4 @@
-import {Quiz} from '@/components/quiz/quiz';
+import {App} from '@/components/app/App';
 import './scss/index.scss';
 
 console.log('run');
@@ -18,7 +18,7 @@ fetch('http://dv-loginov.ru/data/tests/AccentuationCharacter.json')
     .then(status)
     .then(json)
     .then(data => {
-      const quiz = new Quiz('#app', data);
+      const quiz = new App('#app', data);
       quiz.render();
     })
     .catch(error => console.log('error', error));

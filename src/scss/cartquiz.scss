@@ -4,8 +4,9 @@
   justify-content: space-between;
   align-items: start;
   min-height: 60vh;
-  min-width: 60vw;
-  max-width: 80vw;
+  // min-width: 60vw;
+  // max-width: 80vw;
+  width: 80vw;
   border: 1px solid #fff;
   border-radius: 50px;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
@@ -19,6 +20,7 @@
   &__info {
     font-size: calc(.3rem + 1vw);
     align-self: flex-end;
+    padding: 10px 20px 30px 0;
   }
 
   &__question {
