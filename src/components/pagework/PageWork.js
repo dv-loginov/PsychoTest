@@ -15,26 +15,6 @@ export class PageWork extends PageBase {
     this.pageQuiz.render();
   }
 
-  // handleNextQuestion() {
-  //   console.log(`nextQuestion`);
-  //   console.log(this.currentQuestionIndex+1);
-  //   if (this.currentQuestionIndex < this.questions.length - 1) {
-  //     this.currentQuestionIndex++;
-  //     this.currentQuestion = this.questions[this.currentQuestionIndex];
-  //     const app = document.querySelector('#app');
-  //     app.innerHTML = '';
-  //     this.render();
-  //   }
-  //   if (this.currentQuestionIndex === this.questions.length - 1) {
-  //     this.offEvents();
-  //     this.eventsPage = this.nextPage;
-  //     this.eventsPage.map((e) => {
-  //       const node = document.querySelector(e.id);
-  //       node.addEventListener(e.event, e.callback.bind(this));
-  //     });
-  //   }
-  // }
-
   toHTML() {
     return `
     <div class="header">
