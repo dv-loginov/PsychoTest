@@ -2,53 +2,17 @@ import {$} from '@core/dom';
 import {PageStart} from '@/components/pagestart/PageStart';
 import {PageWork} from '@/components/pagework/PageWork';
 import {PageEnd} from '@/components/pageend/PageEnd';
+import {state} from '@/core/state';
 
 export class App {
-  constructor(selector, data) {
-    this.$el = $(selector);
-    Object.assign(this, data);
-    this.pages = [
-      {
-        pageName: PageStart,
-        dataPage: {
-          name: this.name,
-          description: this.description,
-          instruction: this.instruction,
-        },
-        eventsPage: [
-          {
-            id: '#next',
-            event: 'click',
-            callback: this.handlerNextPage.bind(this),
-          },
-        ],
-      },
-      {
-        pageName: PageWork,
-        dataPage: {
-          name: this.name,
-          questions: this.questions,
-        },
-        eventsPage: [
-          {
-            id: '#next',
-            event: 'click',
-            callback: this.handlerNextPage.bind(this),
-          },
-        ],
-      },
-      {
-        pageName: PageEnd,
-        dataPage: {
-          name: this.name,
-        },
-        eventsPage: [],
-      },
-    ];
-
+  constructor(selector) {
+    this.root = selector;
+    this.pages = [PageStart, PageWork, PageEnd];
     this.indexCurrentPage = 1;
     this.currentPage = null;
+    state.handlerNextPage = this.handlerNextPage.bind(this);
   }
+
   handlerNextPage() {
     console.log('nextPage');
     if (this.indexCurrentPage < this.pages.length - 1) {
@@ -62,10 +26,8 @@ export class App {
 
   render() {
     console.log('render app');
-    const PageName = this.pages[this.indexCurrentPage].pageName;
-    const dataPage = this.pages[this.indexCurrentPage].dataPage;
-    const eventsPage = this.pages[this.indexCurrentPage].eventsPage;
-    const page = new PageName(this.$el, dataPage, eventsPage);
+    const PageName = this.pages[this.indexCurrentPage];
+    const page = new PageName(this.root);
     this.currentPage = page;
     page.render();
   }

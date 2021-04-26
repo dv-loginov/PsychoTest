@@ -1,15 +1,21 @@
 import {PageBase} from '@core/PageBase';
+import {state} from '@/core/state';
 
 export class PageStart extends PageBase {
-  constructor(...arg) {
-    super(...arg);
-    this.namePage='PageStart';
+  constructor(root) {
+    super(root);
+    this.eventsPage = [
+      {
+        id: '#next',
+        event: 'click',
+        callback: state.handlerNextPage,
+      },
+    ];
   }
-
   toHTML() {
     return `
     <div class="header">
-        <h1 class="header__text">${this.name}</h1>
+        <h1 class="header__text">${state.dataTest.name}</h1>
     </div>
     <div class="cartQuiz">
         <input class="radio" id="one" name="group" type="radio" checked>
@@ -20,10 +26,10 @@ export class PageStart extends PageBase {
         </div>
         <div class="panels">
             <div class="panel" id="one-panel">
-                ${this.description}
+                ${state.dataTest.description}
             </div>
             <div class="panel" id="two-panel">
-                ${this.instruction}
+                ${state.dataTest.instruction}
             </div>
         </div>
         <div class="cartQuiz__nav">

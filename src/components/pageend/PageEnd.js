@@ -1,9 +1,9 @@
 import {PageBase} from '@core/PageBase';
 
 export class PageEnd extends PageBase {
-  constructor(...arg) {
-    super(...arg);
-    this.namePage='PageEnd';
+  constructor(root) {
+    super(root);
+    this.eventsPage = [];
   }
 
   toHTML() {
