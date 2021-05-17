@@ -22,10 +22,6 @@ export class PageWork extends PageBase {
       },
     ];
     this.dataResult = [];
-    // console.log(`
-    //   Вопрос №${this.currentQuestionIndex + 1} из ${this.questions.length}
-    // `);
-    // console.log(`isEnd: ${this.isEndQuestion()}`);
   }
   buttonEnable() {
     this.buttonNext = document.querySelector('#next');
@@ -59,8 +55,6 @@ export class PageWork extends PageBase {
         this.removeEventOnAnswer();
         this.changeEventOnButton();
         state.dataResult = this.dataResult;
-        // console.dir(state.dataResult);
-        // state.dataResult.map((answer, index) => console.log(index));
       }
     }
   }
@@ -72,10 +66,6 @@ export class PageWork extends PageBase {
       this.$root.clear();
       this.render();
     }
-    // console.log(`
-    //   Вопрос №${this.currentQuestionIndex + 1} из ${this.questions.length}
-    // `);
-    // console.log(`isEnd: ${this.isEndQuestion()}`);
   }
   toHTML() {
     return `

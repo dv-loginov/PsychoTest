@@ -8,7 +8,7 @@ export class App {
   constructor(selector) {
     this.root = selector;
     this.pages = [PageStart, PageWork, PageEnd];
-    this.indexCurrentPage = 1;
+    this.indexCurrentPage = 2;
     this.currentPage = null;
     state.handlerNextPage = this.handlerNextPage.bind(this);
   }
