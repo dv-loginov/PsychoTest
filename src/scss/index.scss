@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import "~normalize.css";
 
-//@import "header";
-//@import "toolbar";
-//@import "formula";
-//@import "table";
-//@import "dashboard";
+@import "header";
+@import "cartquiz";
+@import "buttons";
+@import "tabpanel";
+@import "result";
+@import "radio";
 
 *{
   margin: 0;
@@ -15,23 +16,16 @@
  body {
    font-family: 'Roboto', sans-serif;
    font-size: 12px;
+   min-width: 350px;
  }
 .container{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
+  background:linear-gradient(to right, rgb(42, 181, 206) 0%, rgb(72, 117, 208) 100%);
 }
 
-.quiz{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  color: #888;
-  //height: 100%;
-  min-width: 350px;
-  //max-width: 100%;
-  font-size: .8rem;
-}
+

@@ -1,0 +1,25 @@
+.button{
+  font-size: calc(.7rem + 1vw);
+  padding: .5rem 3rem;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(72, 117, 208);
+    color: white;
+  }
+
+  &:active {
+    outline: none;
+    border: none;
+  }
+
+  &:focus {outline:0;}
+
+  &:disabled{
+    cursor: not-allowed;
+  }
+}

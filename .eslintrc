@@ -9,7 +9,8 @@
     "require-jsdoc": "off",
     "operator-linebreak": "off",
     "no-unused-vars": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "linebreak-style": "off"
   },
   "extends": [
     "eslint:recommended",
