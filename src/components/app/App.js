@@ -6,9 +6,9 @@ import {state} from '@/core/state';
 
 export class App {
   constructor(selector) {
-    this.root = selector;
+    this.$root = $(selector);
     this.pages = [PageStart, PageWork, PageEnd];
-    this.indexCurrentPage = 2;
+    this.indexCurrentPage = 0;
     this.currentPage = null;
     state.handlerNextPage = this.handlerNextPage.bind(this);
   }
@@ -17,9 +17,8 @@ export class App {
     console.log('nextPage');
     if (this.indexCurrentPage < this.pages.length - 1) {
       this.indexCurrentPage++;
-      this.currentPage.offEvents();
-      const app = document.querySelector('#app');
-      app.innerHTML = '';
+      this.currentPage.destroy();
+      this.$root.clear();
       this.render();
     }
   }
@@ -27,7 +26,7 @@ export class App {
   render() {
     console.log('render app');
     const PageName = this.pages[this.indexCurrentPage];
-    const page = new PageName(this.root);
+    const page = new PageName(this.$root);
     this.currentPage = page;
     page.render();
   }

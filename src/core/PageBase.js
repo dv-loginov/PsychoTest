@@ -1,31 +1,32 @@
+import {DomListener} from '@core/DomListener';
 import {$} from '@core/dom';
 
-export class PageBase {
-  constructor(root) {
-    this.$root = $(root);
+export class PageBase extends DomListener {
+  constructor($root, options = {}) {
+    super($root, options.listeners);
+    this.name = options.name || '';
   }
+
   toHTML() {
     return ``;
   }
+
+  init() {
+    this.initDOMListeners();
+  }
+
+  destroy() {
+    this.removeDOMListeners();
+  }
+
   getContent() {
-    const $content = $.create('div', 'container' );
+    const $content = $.create('div', 'container');
     $content.html(this.toHTML());
     return $content;
   }
-  onEvents() {
-    this.eventsPage.map((e)=>{
-      const node = document.querySelector(e.id);
-      node.addEventListener(e.event, e.callback);
-    });
-  }
-  offEvents() {
-    this.eventsPage.map((e)=>{
-      const node = document.querySelector(e.id);
-      node.removeEventListener(e.event, e.callback);
-    });
-  }
+
   render() {
     this.$root.append(this.getContent().$el);
-    this.onEvents();
+    this.init();
   }
 }
