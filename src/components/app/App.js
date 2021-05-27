@@ -2,19 +2,21 @@ import {$} from '@core/dom';
 import {PageStart} from '@/components/pagestart/PageStart';
 import {PageWork} from '@/components/pagework/PageWork';
 import {PageEnd} from '@/components/pageend/PageEnd';
+import {QuizBase} from '@core/QuizBase';
 import {state} from '@/core/state';
 
 export class App {
-  constructor(selector) {
+  constructor(selector, data) {
+    console.log('App run');
     this.$root = $(selector);
     this.pages = [PageStart, PageWork, PageEnd];
     this.indexCurrentPage = 0;
     this.currentPage = null;
+    this.quiz = new QuizBase(data);
     state.handlerNextPage = this.handlerNextPage.bind(this);
   }
 
   handlerNextPage() {
-    console.log('nextPage');
     if (this.indexCurrentPage < this.pages.length - 1) {
       this.indexCurrentPage++;
       this.currentPage.destroy();
@@ -26,7 +28,7 @@ export class App {
   render() {
     console.log('render app');
     const PageName = this.pages[this.indexCurrentPage];
-    const page = new PageName(this.$root);
+    const page = new PageName(this.$root, this.quiz);
     this.currentPage = page;
     page.render();
   }

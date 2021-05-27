@@ -4,8 +4,8 @@ import {$} from '@core/dom';
 import {pageStartLayout} from '@/components/pagestart/pageStartLayout';
 
 export class PageStart extends PageBase {
-  constructor(root) {
-    super(root, {
+  constructor($root, quiz) {
+    super($root, quiz, {
       name: 'PageStart',
       listeners: ['click'],
     });
@@ -19,9 +19,9 @@ export class PageStart extends PageBase {
 
   toHTML() {
     return pageStartLayout(
-        state.dataTest.name,
-        state.dataTest.description,
-        state.dataTest.instruction
+        this.quiz.getName,
+        this.quiz.getDescription,
+        this.quiz.getInstruction
     );
   }
 }

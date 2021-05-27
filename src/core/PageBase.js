@@ -2,9 +2,10 @@ import {DomListener} from '@core/DomListener';
 import {$} from '@core/dom';
 
 export class PageBase extends DomListener {
-  constructor($root, options = {}) {
+  constructor($root, quiz, options = {}) {
     super($root, options.listeners);
     this.name = options.name || '';
+    this.quiz = quiz;
   }
 
   toHTML() {
