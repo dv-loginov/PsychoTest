@@ -12,7 +12,9 @@ export class PageEnd extends PageBase {
   }
 
   onClick(event) {
-    console.log(this.name, 'click');
+    if (event.target.dataset.button === 'theEnd') {
+      document.location.replace('http://dv-loginov.ru');
+    }
   }
 
   toHTML() {
