@@ -4,16 +4,21 @@ import {$} from '@core/dom';
 import {pageStartLayout} from '@/components/pagestart/pageStartLayout';
 
 export class PageStart extends PageBase {
-  constructor($root, quiz) {
+  constructor($root, quiz, emitter) {
     super($root, quiz, {
       name: 'PageStart',
       listeners: ['click'],
+      emitter,
     });
+    console.log('this', this);
   }
 
   onClick(event) {
+    // $(event.target).data.button === 'nextPage'
+    //   ? state.handlerNextPage()
+    //   : null;
     $(event.target).data.button === 'nextPage'
-      ? state.handlerNextPage()
+      ? this.$emit('startPage:nextPage')
       : null;
   }
 

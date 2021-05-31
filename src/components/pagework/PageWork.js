@@ -2,7 +2,6 @@ import {PageBase} from '@core/PageBase';
 import {pageWorkLayout} from '@/components/pagework/pageWorkLayout';
 import {buttonEnable} from '@/components/pagework/utilPageWork';
 import {state} from '@core/state';
-// import {state} from '@core/state';
 
 export class PageWork extends PageBase {
   constructor($root, quiz) {

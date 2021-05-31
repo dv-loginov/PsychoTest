@@ -1,5 +1,4 @@
 import {PageBase} from '@core/PageBase';
-// import {state} from '@core/state';
 import {pageEndLayout} from '@/components/pageend/pageEndLayout';
 
 export class PageEnd extends PageBase {
