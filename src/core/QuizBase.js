@@ -50,7 +50,7 @@ export class QuizBase {
   }
 
   counting() {
-    // this.setDemoResult(0);
+    // this.setDemoResult(1);
 
     this._keys.map(key => {
       let sumNegative = 0;

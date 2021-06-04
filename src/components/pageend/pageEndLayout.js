@@ -15,19 +15,20 @@ export const pageEndLayout = (name, limit, rezults, legend) => {
         <h1 class="header__text">${name}</h1>
     </div>
     </div>
-    <div class="cartQuiz">
+    <div class="cartQuiz cartQuiz--end-page">
         <div class="result__title">Расшифровка результата</div>
         <div class="result__text">
              ${rezultList.join('')}
         </div>
-        <div class="cartQuiz__nav">
+        
+    </div>
+    <nav class="nav">
             <button 
                 id="next" 
                 class="button"
                 data-button="theEnd"
                 >Закончить
             </button>
-        </div>
-    </div>
+    </nav>
     `;
 };

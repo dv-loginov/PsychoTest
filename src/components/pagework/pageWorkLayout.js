@@ -19,26 +19,25 @@ export const pageWorkLayout = (name, id, amount, question, answers) => {
           <div class="header">
               <h1 class="header__text">${name}</h1>
           </div>
-          <div class="cartQuiz">
+          <div class="cartQuiz cartQuiz--work-page">
+           <span class="cartQuiz__info">Вопрос
+                ${id} из ${amount}
+           </span>
            <div class="cartQuiz__question">
-                    <span class="cartQuiz__info">Вопрос
-                        ${id} 
-                        из 
-                        ${amount}
-                    </span>
-                    <h2>${question}</h2>
-                </div>
-                <div class="cartQuiz__answer">
+                <h2>${question}</h2>
+           </div>
+           <div class="cartQuiz__answer">
                     ${answerList.join('')}
-                </div>
-                <div class="cartQuiz__nav">
+           </div>
+                
+          </div>
+          <nav class="nav">
                     <button 
                       id="next" 
                       class="button" 
                       disabled
                       data-button = "next"
                       >Далее</button>
-                </div>
-          </div>
+          </nav>
   `;
 };

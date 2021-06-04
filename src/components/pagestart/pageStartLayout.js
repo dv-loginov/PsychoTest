@@ -3,7 +3,7 @@ export const pageStartLayout = (name, description, instruction) => {
     <div class="header">
         <h1 class="header__text">${name}</h1>
     </div>
-    <div class="cartQuiz">
+    <div class="cartQuiz cartQuiz--start-page">
         <input class="radio" id="one" name="group" type="radio" checked>
         <input class="radio" id="two" name="group" type="radio">
         <div class="tabs">
@@ -18,14 +18,14 @@ export const pageStartLayout = (name, description, instruction) => {
                 ${instruction}
             </div>
         </div>
-        <div class="cartQuiz__nav">
+    </div>
+    <nav class="nav">
             <button 
                 id="next" 
                 class="button" 
                 data-button="nextPage" 
                 >Начать
             </button>
-        </div>
-    </div>
+    </nav>
     `;
 };
