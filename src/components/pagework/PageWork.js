@@ -1,7 +1,6 @@
 import {PageBase} from '@core/PageBase';
 import {pageWorkLayout} from '@/components/pagework/pageWorkLayout';
 import {buttonEnable} from '@/components/pagework/utilPageWork';
-import {state} from '@core/state';
 
 export class PageWork extends PageBase {
   constructor($root, quiz) {
@@ -23,7 +22,7 @@ export class PageWork extends PageBase {
         this.destroy();
         this.$root.clear();
         this.render();
-      } else state.handlerNextPage();
+      } else window.handlerNextPage();
     }
   }
 
